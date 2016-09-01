@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+	<title>Pacman</title>
+	<style>
+	body{
+		margin:0px;
+	}
+	.row{
+		height:21px;
+	}
+	.block{
+		width:21px;
+		height:21px;
+		border:1px black;
+		display:inline-block;
+		background-color:green;
+	}
+	#world{
+		position:relative;
+	}
+	.coin{
+		background-image: url("banana.png");
+		background-position: center;
+		width:21px;
+		height:21px;
+		display:inline-block;
+	}
+	#harambe{
+		background-image: url("hbe.png");
+		width:21px;
+		height:21px;
+		display:inline-block;
+		background-position:center;
+		position:absolute;
+	}
+	.empty{
+		width:21px;
+		height:21px;
+		display:inline-block;
+
+	}
+	</style>
+</head>
+<body>
+<div id="container">
+<div id="world"></div>
+<div id="harambe" style='top:20px; left:20px;'></div>
+</div>	
+	<script>
+	
+	var world =[
+		[1,1,1,1,1,1,1,1,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,1,1,1,1,1,1,1,1]
+		];
+
+function displayWorld(){
+	
+	var output='';
+
+	for(var i=0; i<world.length; i++){
+		output +="\n<div class='row'>";
+		for(var j =0; j<world[i].length; j++){
+			if(world[i][j] == 2)
+				output += "<div class='coin'></div>";
+				else if(world[i][j] == 1)
+					output +="<div class='block'></div>";
+				if(world[i][j]== 0)
+					output += "<div class='empty'></div>";
+
+			
+		}
+		output += "\n</div>";
+	}
+	console.log(output);
+	document.getElementById('world').innerHTML = output;
+}
+
+displayWorld();
+	</script>
+	<!--
+	<div class="row">
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="harambe"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</div>
+	-->
+</body>
+</html>

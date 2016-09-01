@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Date Validations</title>
+	<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+	<script   src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"   integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="   crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/le-frog/jquery-ui.css" >
+	<script type=text/javascript>
+	$(document).ready(function(){
+		
+		$(function(){
+		$('#go').datepicker();
+		})
+		
+		$(function(){
+			$('#back').datepicker();
+		})
+		$("#submit").click(function(){
+			var name = $('#name').val();
+			var destination =$('#destination').val();
+			var datego = $('#go').val();
+			var dateback= $('#back').val();
+			alert(' Congratulations +'name'+ ! Your cruise to +'destination' + leaves on +'datego'+ and returns on +'dateback'+ !');
+		})
+		})
+	</script> 
+
+	<style>
+	input{
+		display:list-item;
+	}
+	</style>
+</head>
+<body>
+<h1>Welcome to CatwithBat's Cruise planner!!!!!!!!!!!!!!!</h1>
+<form>
+	Date Leaving: <input id="go" type="text" name="datego" value="">
+	Date Returning: <input  id="back" type="text" name="dateback" value="">
+	Destination: <input id="destination" type="text" name="destination" value=""> 
+	Name: <input id="name" type="text" name="name" value="">
+	<input id="submit" type="submit" value="Book a Cruise!!!">
+</form>
