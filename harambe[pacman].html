@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+	<title>Pacman</title>
+	<style>
+	#container{
+		background-color:#994d00;
+	}
+	body{
+		margin:0px;
+	}
+	.row{
+		height:21px;
+	}
+	.block{
+		width:21px;
+		height:21px;
+		border:1px black;
+		display:inline-block;
+		background-color:green;
+	}
+	#world{
+		position:relative;
+	}
+	.coin{
+		background-image: url("banana.gif");
+		background-position: center;
+		background-size:cover;
+		width:21px;
+		height:21px;
+		display:inline-block;
+		background-color:#994d00;
+	}
+	#harambe{
+		background-image: url("hmb.gif");
+		width:21px;
+		height:21px;
+		display:inline-block;
+		background-position:center;
+		background-size:cover;
+		position:absolute;
+	}
+	.empty{
+		width:21px;
+		height:21px;
+		display:inline-block;
+
+	}
+	#score{
+		border:2px solid black;
+		height:17px;
+		width:30px;
+		padding:7px;
+		text-align:center;
+	}
+	</style>
+</head>
+<body>
+<div id="container">
+<div id="world"></div>
+<div id="harambe"></div>
+<div id="score">0</div>
+</div>	
+	<script>
+	
+	var world =[
+		[1,1,1,1,1,1,1,1,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,2,1,1,2,1,1,1,1],
+		[1,2,1,1,2,2,1,1,1],
+		[1,2,1,1,1,2,2,2,1],
+		[1,2,1,1,1,1,1,2,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,2,2,2,2,2,2,2,1],
+		[1,1,1,1,1,1,1,1,1]
+		];
+
+var score = 0;
+
+var harambe = {
+
+	x:1,
+	y:1
+};
+
+function displayWorld(){
+	
+	var output='';
+
+	for(var i=0; i<world.length; i++){
+		output +="\n<div class='row'>";
+		for(var j =0; j<world[i].length; j++){
+			if(world[i][j] == 2)
+				output += "<div class='coin'></div>";
+				else if(world[i][j] == 1)
+					output +="<div class='block'></div>";
+				if(world[i][j]== 0)
+					output += "<div class='empty'></div>";
+
+			
+		}
+		output += "\n</div>";
+	}
+	 //console.log(output);
+
+	document.getElementById('world').innerHTML = output;
+}
+function displayHarambe(){
+	document.getElementById('harambe').style.left = harambe.x*21+"px";
+	document.getElementById('harambe').style.top = harambe.y*21+"px"
+}
+function displayScore(){
+	document.getElementById('score').innerHTML = score;
+}
+
+displayWorld();
+displayHarambe();
+displayScore();
+
+document.onkeydown = function(e){
+	if(e.keyCode == 37 && world[harambe.y][harambe.x-1] != 1){
+		harambe.x--
+	}
+	else if(e.keyCode == 39 && world[harambe.y][harambe.x+1] !=1){
+		harambe.x++
+	}
+	else if(e.keyCode ==38 && world[harambe.y-1][harambe.x] !=1){
+		harambe.y--
+	}
+	else if(e.keyCode ==40 && world[harambe.y+1][harambe.x] !=1){
+		harambe.y++
+	}
+	
+	if(world[harambe.y][harambe.x] ==2){
+		world[harambe.y][harambe.x] =0;
+		score+=10;
+		displayWorld();
+		displayScore();
+	}
+
+
+
+	//console.log(e.keyCode)
+
+	displayHarambe();
+}
+	</script>
+	<!--
+	<div class="row">
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="harambe"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="coin"></div>
+		<div class="block"></div>
+	</div>
+	<div class="row">
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+		<div class="block"></div>
+	</div>
+	-->
+</body>
+</html>
