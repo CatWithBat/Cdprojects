@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('img').hover(function(){
+		var temp=$(this).attr("src");
+		$(this).attr("src", $(this).attr("data-alt-src"));
+		$(this).attr("data-alt-src",temp);
+		})	
+	})
+</script>
+<style>
+#polar{
+	display:none;
+}
+.box{
+	height:301px;
+	width:201px;
+	display:inline-block;
+}
+</style>
+</head>
+<body>
+<div class="row">
+	<div class="box">
+		<img src="brown1.jpg" data-alt-src="polar.jpg">
+	</div>
+	<div class="box">
+		<img src="brown2.jpg" data-alt-src="polar.jpg">
+	</div>
+	<div class="box">
+		<img src="brown3.jpg" data-alt-src="polar.jpg">
+	</div>
+	<div class="box">
+		<img src="brown4.jpg" data-alt-src="polar.jpg">
+	</div>
+</div>
+<div class="row">
+	<div class="box">
+		<img src="brown5.jpg" data-alt-src="polar.jpg">
+	</div>
+	<div class="box">
+		<img src="brown6.jpg" data-alt-src="polar.jpg">
+	</div>
+	<div class="box">
+		<img src="brown7.jpg" data-alt-src="polar.jpg">
+	</div>
+	<div class="box">
+		<img src="brown8.jpeg" data-alt-src="polar.jpg">
+	</div>
+</div>
+<div>
+</body>
+</html>
